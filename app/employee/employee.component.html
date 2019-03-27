@@ -1,0 +1,51 @@
+<html>
+  <head>
+    
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+    
+      <app-employee-list 
+      [Total]="getTotalEmployee()"
+      [Male]="getMale()"
+      [Female]="getFemale()" 
+      (OnSelectionOfRadioButton)="OnESelection($event)" >
+    </app-employee-list>
+
+
+  
+<table>
+
+  <thead>
+   <tr>
+    <th>EmployeeName</th>
+    <th>Gender</th>
+    <th>Department</th>
+    </tr>
+    </thead>
+      <tbody>
+
+            
+        <tr *ngFor="let EmployeeDetails of EmployeeTable">
+        <!--  <tr *ngIf="SelectedEmployee=='Total'|| SelectedEmployee=='Male'">  -->
+          <td>{{EmployeeDetails.EmployeeName|employee:EmployeeDetails.Gender}}</td>
+          <td>{{EmployeeDetails.Gender}}</td>
+          <td>{{EmployeeDetails.Department|uppercase}}</td>
+          </tr>
+        
+
+</tbody>
+</table>
+
+<!---string interpolation-->
+<p>{{'Server'}} with id {{serverId}} is {{serverStatus}}</p>
+
+
+
+</body>
+</html>
